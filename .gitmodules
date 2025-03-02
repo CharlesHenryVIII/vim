@@ -10,3 +10,36 @@
 [submodule ".vim/pack/plugins/start/asyncrun.vim"]
 	path = .vim/pack/plugins/start/asyncrun.vim
 	url = https://github.com/skywind3000/asyncrun.vim.git
+[submodule ".vim/pack/plugins/start/nvim-treesitter.nvim"]
+	path = .vim/pack/plugins/start/nvim-treesitter.nvim
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule ".vim/pack/plugins/start/nvim-lspconfig.nvim"]
+	path = .vim/pack/plugins/start/nvim-lspconfig.nvim
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule ".vim/pack/plugins/start/nvim-cmp.nvim"]
+	path = .vim/pack/plugins/start/nvim-cmp.nvim
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule ".vim/pack/plugins/start/cmp-buffer.nvim"]
+	path = .vim/pack/plugins/start/cmp-buffer.nvim
+	url = https://github.com/hrsh7th/cmp-buffer
+[submodule ".vim/pack/plugins/start/cmp-cmdline.nvim"]
+	path = .vim/pack/plugins/start/cmp-cmdline.nvim
+	url = https://github.com/hrsh7th/cmp-cmdline
+[submodule ".vim/pack/plugins/start/cmp-nvim-lsp.nvim"]
+	path = .vim/pack/plugins/start/cmp-nvim-lsp.nvim
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule ".vim/pack/plugins/start/cmp-path.nvim"]
+	path = .vim/pack/plugins/start/cmp-path.nvim
+	url = https://github.com/hrsh7th/cmp-path
+[submodule ".vim/pack/plugins/start/cmp-vsnip.nvim"]
+	path = .vim/pack/plugins/start/cmp-vsnip.nvim
+	url = https://github.com/hrsh7th/cmp-vsnip
+[submodule ".vim/pack/plugins/start/vim-vsnip.vim"]
+	path = .vim/pack/plugins/start/vim-vsnip.vim
+	url = https://github.com/hrsh7th/vim-vsnip
+[submodule ".vim/pack/plugins/start/gruvbox.nvim"]
+	path = .vim/pack/plugins/start/gruvbox.nvim
+	url = https://github.com/ellisonleao/gruvbox.nvim
+[submodule ".vim/pack/plugins/start/sonokai.nvim"]
+	path = .vim/pack/plugins/start/sonokai.nvim
+	url = https://github.com/sainnhe/sonokai

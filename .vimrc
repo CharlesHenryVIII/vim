@@ -2,14 +2,6 @@
 " Plugin Management            "
 """"""""""""""""""""""""""""""""
 
-"if has('nvim')
-"    cd C:\Projects
-"    colorscheme gruvbox
-"    inoremap <C-s> <esc>:w<CR>
-"    vmap <C-s> <esc>:w<CR>gv
-"    nnoremap <silent> <C-S> :w<CR>
-"    imap {<CR> {<CR>}<Up><C-o>o
-"endif
 
 " I would rather this go into the .gvimrc file, but that is loaded
 " too late in the initialization process, so packages have already
@@ -30,33 +22,80 @@ if has("gui_running")        " || has('nvim')
     set lines=40 columns=150
 endif
 
-if (has('nvim'))
-    cd C:\Projects
+if exists("g:neovide")
+    inoremap ^S <cmd>:w<cr>
+    let g:neovide_position_animation_length = 0.05
+    let g:neovide_scroll_animation_length = 0.01
+    let g:neovide_cursor_animation_length = 0.05
+    let g:neovide_cursor_trail_size = 0.2
 endif
 
-" configure gruvbox
-if filereadable(expand("~/.vim/colors/gruvbox.vim"))
+if (has('nvim'))
+    cd C:\Projects
+    inoremap <C-s> <esc>:w<CR>
+    vmap <C-s> <esc>:w<CR>gv
+    nnoremap <silent> <C-S> :w<CR>
+    imap {<CR> {<CR>}<Up><C-o>o
 
-    " Disable italics helps non-Consolas fonts render correctly. Others render
-    " out of the bounding box and cause pixels to be incorrect until redrawn.
-    let g:gruvbox_italic=0
+    " Use <Tab> and <S-Tab> to navigate through popup menu
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-    let g:gruvbox_bold = '1'
-    let g:gruvbox_undercurl = '1'
-    let g:gruvbox_vert_split = 'bg4'
-    "let g:gruvbox_contrast_dark = 'soft'
-    "let g:gruvbox_contrast_dark = 'medium'
-    let g:gruvbox_contrast_dark = 'hard'
-    let g:gruvbox_contrast_light = 'hard'
-    nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-    nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-    nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+    " Set completeopt to have a better completion experience
+    set completeopt=menuone,noinsert,noselect
 
-    nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-    nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-    nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+    " Avoid showing message extra message when using completion
+    set shortmess+=c
 
-    colorscheme gruvbox
+    set pumheight=10
+
+    "let g:gruvbox_italic=0
+
+    "let g:gruvbox_bold = '1'
+    "let g:gruvbox_undercurl = '0' "'1'
+    "let g:gruvbox_vert_split = 'bg4'
+    ""let g:gruvbox_contrast_dark = 'soft'
+    ""let g:gruvbox_contrast_dark = 'medium'
+    "let g:gruvbox_contrast_dark = 'hard'
+    "let g:gruvbox_contrast_light = 'hard'
+    "nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+    "nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+    "nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+
+    "nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+    "nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+    "nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+    "colorscheme gruvbox
+
+    let g:sonokai_style = 'shusia'
+    "let g:sonokai_style = 'andromeda'
+    let g:sonokai_better_performance = 1
+    colorscheme sonokai
+else
+    " configure gruvbox
+    if filereadable(expand("~/.vim/colors/gruvbox.vim"))
+
+        " Disable italics helps non-Consolas fonts render correctly. Others render
+        " out of the bounding box and cause pixels to be incorrect until redrawn.
+        let g:gruvbox_italic=0
+
+        let g:gruvbox_bold = '1'
+        let g:gruvbox_undercurl = '0' "'1'
+        let g:gruvbox_vert_split = 'bg4'
+        "let g:gruvbox_contrast_dark = 'soft'
+        "let g:gruvbox_contrast_dark = 'medium'
+        let g:gruvbox_contrast_dark = 'hard'
+        let g:gruvbox_contrast_light = 'hard'
+        nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+        nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+        nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+
+        nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+        nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+        nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+
+        colorscheme gruvbox
+    endif
 endif
 
 " Highlight functions in cpp files (used in .vim/after/syntax/cpp.vim)
@@ -130,13 +169,13 @@ let g:ctrlp_custom_ignore = {
 " NOTE: use :AsyncStop to stop a build
 " NOTE: has('win32unix') returns true for vim running in git bash< win32 and
 " win64 return false in that environment
-let g:asyncrun_open=10
+let g:asyncrun_open=20
 if has('win32') || has('win64') || has('win32unix')
-    nnoremap <C-b> :AsyncRun run_build.bat<cr>
+    nnoremap <C-S-b> :wa<cr> :AsyncRun run_build.bat<cr>
 else
     " Note this is not the same behavior as windows. It only runs from the
     " current directory.
-    nnoremap <C-b> :AsyncRun ./build.sh<cr>
+    nnoremap <C-S-b> :wa<cr> :AsyncRun ./build.sh<cr>
 endif
 
 " Map both F7 and Shift F8 to previous quickfix the
@@ -365,6 +404,8 @@ if (has('nvim'))
 else
     " Interesting, but hard to get working correctlY: ProggyCleanTTF:h12:cANSI:qDRAFT,
     set guifont=Lucida_Console:h11:cANSI:qDRAFT,Roboto\ Mono:h11:cANSI,Consolas:h11:cANSI
+    "set guifont=Console:h11:cANSI:qDRAFT,Roboto\ Mono:h11:cANSI,Consolas:h11:cANSI
+    "set guifont=Mono:h11:cANSI,Consolas:h11:cANSI
 endif
 
 " Disable audio and visual bells (error beeps and screen flashes)
