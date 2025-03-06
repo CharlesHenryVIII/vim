@@ -313,6 +313,9 @@ nnoremap <leader>s :set syntax=cpp<cr>
 " Open the .vimrc file
 nnoremap <leader>vf :e $HOME/.vimrc<cr>
 
+" Open the neovim init.lua file
+nnoremap <leader>vfl :e $HOME/.vim/neovim/init.lua<cr>
+
 " Set to cpp syntax highlighting
 nnoremap <leader>s :set syntax=cpp<cr>
 
