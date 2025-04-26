@@ -1,6 +1,6 @@
 1. Download and install [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 2. Download and install [Neovide](https://neovide.dev/)
-3. create "`~appdata/local/nvim/init.vim`"
+3. create `~appdata/local/nvim/init.vim`
 
 ```
 set runtimepath-=~/vimfiles
