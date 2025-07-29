@@ -28,6 +28,8 @@ if exists("g:neovide")
     let g:neovide_scroll_animation_length = 0.01
     let g:neovide_cursor_animation_length = 0.05
     let g:neovide_cursor_trail_size = 0.2
+else
+    set termencoding=utf-8
 endif
 
 if (has('nvim'))
@@ -559,7 +561,6 @@ endfunction
 " set UTF-8 encoding
 set enc=utf-8
 set fenc=utf-8
-set termencoding=utf-8
 " use indentation of previous line
 set autoindent
 " use intelligent indentation for C
