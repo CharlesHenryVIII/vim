@@ -38,8 +38,8 @@ if (has('nvim'))
     imap {<CR> {<CR>}<Up><C-o>o
 
     " Use <Tab> and <S-Tab> to navigate through popup menu
-    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
     " Set completeopt to have a better completion experience
     set completeopt=menuone,noinsert,noselect
@@ -169,7 +169,7 @@ let g:ctrlp_custom_ignore = {
 " NOTE: use :AsyncStop to stop a build
 " NOTE: has('win32unix') returns true for vim running in git bash< win32 and
 " win64 return false in that environment
-let g:asyncrun_open=20
+let g:asyncrun_open=10
 if has('win32') || has('win64') || has('win32unix')
     nnoremap <C-S-b> :wa<cr> :AsyncRun run_build.bat<cr>
 else
@@ -323,7 +323,7 @@ nnoremap <leader>s :set syntax=cpp<cr>
 nnoremap <leader>vr :so $MYVIMRC<cr>
 
 " store session:
-nnoremap <leader>m :mks c:\temp\session2.vim<cr>
+nnoremap <leader>m :mks! c:\temp\session2.vim<cr>
 " reload session:
 " source <filename>
 
@@ -569,3 +569,6 @@ set comments=sl:/*,mb:\ *,elx:\ */
 
 " switch between header/source with F4
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+"" Remove mouse pasting with middle mouse button
+"set mouse="" "this doesn't work
