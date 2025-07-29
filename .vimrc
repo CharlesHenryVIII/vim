@@ -175,7 +175,10 @@ if has('win32') || has('win64') || has('win32unix')
 else
     " Note this is not the same behavior as windows. It only runs from the
     " current directory.
-    nnoremap <C-S-b> :wa<cr> :AsyncRun ./build.sh<cr>
+    " nnoremap <C-b> :AsyncRun ./build.sh<cr>
+    " This is the new behavior that works like the windows version. I put
+    " run_build.sh in /urs/local/bin so it is in the path
+    nnoremap <C-S-b> :AsyncRun run_build.sh<cr>
 endif
 
 " Map both F7 and Shift F8 to previous quickfix the
@@ -368,6 +371,15 @@ nnoremap Y y$
 " Control ] is jump to tag. Add a zz at the end of it to always center the
 " screen on the tag after jumping
 nnoremap <C-]> <C-]>zz
+
+" This overrides the default [[ behavior that jumps to the closest { that is
+" unindented above the cursor. That is useful to jump to the start of a
+" function, but doesn't work if the opening bracket is on the same line:
+" void foo() {
+" }
+" Switching to this feels the same (unless it's nested more than the number
+" here), but works regardless since it is operating on scope.
+nnoremap [[ 20[{
 
 " hitting j k in insert mode will hit return to normal mode
 inoremap jk <esc>
