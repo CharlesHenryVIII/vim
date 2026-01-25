@@ -28,12 +28,11 @@ if exists("g:neovide")
     let g:neovide_scroll_animation_length = 0.01
     let g:neovide_cursor_animation_length = 0.05
     let g:neovide_cursor_trail_size = 0.2
-else
+elseif exists("vim")
     set termencoding=utf-8
 endif
 
 if (has('nvim'))
-    cd C:\Projects
     inoremap <C-s> <esc>:w<CR>
     vmap <C-s> <esc>:w<CR>gv
     nnoremap <silent> <C-S> :w<CR>
