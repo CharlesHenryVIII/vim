@@ -6,6 +6,7 @@
 .minttyrc
 .viminfo
 _viminfo
+session.vim
 
 
 # But not these files...

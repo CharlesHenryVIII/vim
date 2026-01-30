@@ -2,6 +2,11 @@
 " Plugin Management            "
 """"""""""""""""""""""""""""""""
 
+if has('win32') || has('win64')
+    cd C:\Projects
+elseif has('unix')
+    cd ~\projects
+endif
 
 " I would rather this go into the .gvimrc file, but that is loaded
 " too late in the initialization process, so packages have already
@@ -327,8 +332,9 @@ nnoremap <leader>s :set syntax=cpp<cr>
 nnoremap <leader>vr :so $MYVIMRC<cr>
 
 " store session:
-nnoremap <leader>m :mks! c:\temp\session2.vim<cr>
+nnoremap <leader>m :mks! $HOME/.vim/session.vim<cr>
 " reload session:
+nnoremap <leader>ml :source $HOME/.vim/session.vim<cr>
 " source <filename>
 
 " Redraw screen (Clears lit pixels from GVim)
@@ -417,9 +423,11 @@ filetype plugin on
 if (has('nvim'))
     " set guifont=Inconsolata:h12:cANSI:qDRAFT,
     set guifont=Lucida\ Console:h12:cANSI:qDRAFT,Roboto\ Mono:h11:cANSI,Consolas:h11:cANSI
+elseif has('unix')
+    set guifont=Lucida\ Console\ Semi-Condensed\ 11
 else
     " Interesting, but hard to get working correctlY: ProggyCleanTTF:h12:cANSI:qDRAFT,
-    set guifont=Lucida_Console:h11:cANSI:qDRAFT,Roboto\ Mono:h11:cANSI,Consolas:h11:cANSI
+    set guifont=Lucida\ Console:h11:cANSI:qDRAFT,Roboto\ Mono:h11:cANSI,Consolas:h11:cANSI
     "set guifont=Console:h11:cANSI:qDRAFT,Roboto\ Mono:h11:cANSI,Consolas:h11:cANSI
     "set guifont=Mono:h11:cANSI,Consolas:h11:cANSI
 endif
