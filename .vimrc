@@ -2,17 +2,18 @@
 " Plugin Management            "
 """"""""""""""""""""""""""""""""
 
-if has('win32') || has('win64')
-    cd C:\Projects
-elseif has('unix')
-    cd ~\projects
-endif
+let is_windows = has('win32') || has('win64') || has('win32unix')
+ if has('win32') || has('win64')
+     cd C:/Projects
+ elseif has('unix') && !has('win32unix')
+     cd ~\projects
+ endif
 
 " I would rather this go into the .gvimrc file, but that is loaded
 " too late in the initialization process, so packages have already
 " finished loading at that point.
 if has("gui_running")        " || has('nvim')
-    if has('win32') || has('win64')
+    if is_windows
         set runtimepath-=~/vimfiles
         set runtimepath^=~/.vim
         set runtimepath-=~/vimfiles/after
@@ -176,7 +177,7 @@ let g:ctrlp_custom_ignore = {
 " NOTE: has('win32unix') returns true for vim running in git bash< win32 and
 " win64 return false in that environment
 let g:asyncrun_open=10
-if has('win32') || has('win64') || has('win32unix')
+if is_windows
     nnoremap <C-S-b> :wa<cr> :AsyncRun run_build.bat<cr>
 else
     " Note this is not the same behavior as windows. It only runs from the
@@ -194,7 +195,7 @@ nnoremap <F7> :cp<cr>
 nnoremap <S-F8> :cp<cr>
 nnoremap <F8> :cn<cr>
 
-if has('win32') || has('win64') || has('win32unix')
+if is_windows
     "I _think_ this is for cl.exe:
     "set errorformat+=\\\ %#%f(%l\\\,%c):\ %m
 
