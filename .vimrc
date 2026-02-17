@@ -333,9 +333,9 @@ nnoremap <leader>s :set syntax=cpp<cr>
 nnoremap <leader>vr :so $MYVIMRC<cr>
 
 " store session:
-nnoremap <leader>m :mks! $HOME/.vim/session.vim<cr>
+nnoremap <leader>m :mks! $HOME/session.vim<cr>
 " reload session:
-nnoremap <leader>ml :source $HOME/.vim/session.vim<cr>
+nnoremap <leader>ml :source $HOME/session.vim<cr>
 " source <filename>
 
 " Redraw screen (Clears lit pixels from GVim)
