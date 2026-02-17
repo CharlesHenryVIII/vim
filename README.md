@@ -1,3 +1,22 @@
+# VIM/GVIM
+1. Download and install [vim](https://www.vim.org/download.php)
+2. Create/Set HOME environment variable to `C:/Users/<username>/dotfiles`
+3. Create symbolic links
+    - Windows
+        - May require `cmd.exe /c mklink` or just `mklink`
+        - `cmd.exe /c mklink /D %HOME%\.vim         C:\projects\vim\.vim`
+        - `cmd.exe /c mklink    %HOME%\.vimrc       C:\projects\vim\.vimrc`
+        - `cmd.exe /c mklink    %HOME%\.gvimrc      C:\projects\vim\.gvimrc`
+        - `cmd.exe /c mklink    %HOME%\.ideavimrc   C:\projects\vim\.ideavimrc`
+        - `cmd.exe /c mklink    %LOCALAPPDATA%\nvim\init.vim C:\projects\vim\init.vim`
+    - Linux
+        - ln -s something something
+4. run vim
+    - Windows: `gvim.exe`
+    - Linux: `vim`
+
+
+# NEOVIM/NEOVIDE
 1. Download and install [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 2. Download and install [Neovide](https://neovide.dev/)
 3. create `~appdata/local/nvim/init.vim`
