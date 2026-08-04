@@ -413,6 +413,7 @@ set shortmess+=T
 "let g:netrw_list_hide='.*\.swp$'
 let g:netrw_list_hide = '^\./$,^\.\./$'
 let g:netrw_hide = 1
+let g:netrw_sort_options = 'i'
 
 " disable vi compatibility (emulation of old bugs)
 set nocompatible
