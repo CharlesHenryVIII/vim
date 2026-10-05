@@ -258,6 +258,8 @@ nnoremap <leader>c :bp\|bd #<cr>
 
 " Sort the current paragraph, useful for sorting a list of included files
 nnoremap <leader>x vip:sort<cr>
+" Sort the current visual selection
+vnoremap <leader>x :sort<cr>
 
 " Show the current working directory
 nnoremap <leader>p :pwd<cr>
